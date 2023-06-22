@@ -25,7 +25,9 @@ export async function authenticate(request: FastifyRequest, reply:FastifyReply) 
             }
         })
 
-        return reply.status(200).send(token)
+        return reply.status(200).send({
+            token,
+        })
 
     } catch (err) {
         if (err instanceof InvalidCredentialsError) {
